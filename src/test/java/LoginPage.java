@@ -1,8 +1,8 @@
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.ui.*;
-import org.testng.*;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import org.testng.annotations.*;
 
 public class LoginPage {
@@ -14,7 +14,7 @@ public class LoginPage {
 
     @BeforeSuite
     public void BeforeSuite() {
-        System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"/src/main/resources/chromedriver");
+        System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"/src/main/resources/geckodriver");
         DesiredCapabilities caps = DesiredCapabilities.firefox();
         caps.setCapability("marionette", true);
         caps.setCapability("networkConnectionEnabled", true);
@@ -33,14 +33,16 @@ public class LoginPage {
     public void quitDriver() {
         driver.quit();
     }
-
-
+    //Verify search ability on google.com
     @Test()
-    public void GoogleTest1() throws Exception{
+    public void verifySearchGoogle() throws Exception{
         driver.get("https://www.google.com");
         driver.findElement(By.name("q")).sendKeys("webdriver");
         driver.findElement(By.xpath("//*[@id=\"tsf\"]/div[2]/div/div[3]/center/input[1]")).click();
+        Assert.assertFalse(driver.findElement(By.xpath("(//*[@class='LC20lb'])[1]")).getText().contains("Sel11111enium WebDriver"));
         Assert.assertTrue(driver.findElement(By.xpath("(//*[@class='LC20lb'])[1]")).getText().contains("Selenium WebDriver"));
+        Assert.assertTrue(driver.findElements(By.xpath("//*[@class='LC20lb']")).size()<15);
+        Assert.assertTrue(driver.findElement(By.xpath("(//*[@class='LC20lb'])[1]")).isDisplayed());
         System.out.print("Element: " + driver.findElement(By.xpath("(//*[@class='LC20lb'])[1]")).getText() + " displayed\n");
         System.out.print(ANSI_GREEN_BACKGROUND + "SUCCESS! " + ANSI_RESET);
     }
@@ -48,16 +50,16 @@ public class LoginPage {
     @Test
     public void GoogleTest2() throws Exception{
         driver.get("http://www.google.com");
-        WebElement element = driver.findElement(By.name("q"));
-        element.sendKeys("monster jobs");
+        WebElement el = driver.findElement(By.name("q"));
+        el.sendKeys("monster jobs");
         driver.findElement(By.xpath("(//*[@type='submit'])[3]")).click();
         if(driver.findElement(By.xpath("//*[contains(text(), 'Searches related to monster jobs')]")).isDisplayed()){
             assert true;
             System.out.print(ANSI_GREEN_BACKGROUND + "SUCCESS! " + ANSI_RESET);
         }
-        else
-        {assert false;}
+        else {assert false;}
     }
+
     @Test
     public void GoogleTest3() throws Exception{
         driver.get("http://www.google.com");
@@ -83,6 +85,14 @@ public class LoginPage {
         driver.get("https://scgi.half.ebay.com/ws/eBayISAPI.dll?RegisterEnterInfo&usage=2943&ru=");	//enter url
         Select select = new Select(driver.findElement(By.id("state")));
         select.selectByVisibleText("California");
+        System.out.print(ANSI_GREEN_BACKGROUND + "SUCCESS! " + ANSI_RESET);
+    }
+
+    @Test
+    public void VerifyDropDownEbayHalf2() throws InterruptedException {
+        driver.get("https://scgi.half.ebay.com/ws/eBayISAPI.dll?RegisterEnterInfo&usage=2943&ru=");	//enter url
+        Select select = new Select(driver.findElement(By.id("state")));
+        select.selectByVisibleText("New York");
         System.out.print(ANSI_GREEN_BACKGROUND + "SUCCESS! " + ANSI_RESET);
     }
 
