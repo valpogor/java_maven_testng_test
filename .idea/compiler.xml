@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="qastarting_java_test" target="1.5" />
+      <module name="qastarting_java_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
