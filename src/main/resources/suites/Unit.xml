@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="2" verbose="1" name="Unit" parallel="methods">
+    <test name="regression" preserve-order="false">
+        <classes>
+            <class name="unit.Algoritms"/>
+            <class name="unit.FoxJsoupTest"/>
+            <class name="unit.Regex"/>
+            <class name="unit.TxtCreateReadModifyDeleteTest"/>
+            <class name="unit.UnitTest"/>
+            <class name="unit.YelpFindAllNamesPhones"/>
+            <class name="oop.Abstraction_OOP"/>
+            <class name="oop.DynamicPolymorphism_OOP"/>
+            <class name="oop.Encapsulation_OOP"/>
+            <class name="oop.InterfacesOOPTest"/>
+            <class name="oop.StaticPolymorphism_OOP"/>
+        </classes>
+    </test>
+</suite>

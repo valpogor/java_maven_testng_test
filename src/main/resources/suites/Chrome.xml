@@ -7,7 +7,8 @@
         <classes>
             <!--<class name="LoginPageTest"/>-->
             <!--<class name="LandingPageTest"/>-->
-            <class name="NavigationToGoogle"/>
+            <!--<class name="NavigationToGoogle"/>-->
+            <class name="ui.DatafactionLandingPageTest"/>
         </classes>
     </test>
 </suite>
