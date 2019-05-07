@@ -275,8 +275,8 @@
                         <version>2.16</version>
                         <configuration>
                             <suiteXmlFiles>
-                                <suiteXmlFile>${project.basedir}/src/main/resources/suites/Chrome.xml</suiteXmlFile>
-                                <!--<suiteXmlFile>${project.basedir}/src/main/resources/suites/Firefox.xml</suiteXmlFile>-->
+                                <!--<suiteXmlFile>${project.basedir}/src/main/resources/suites/Chrome.xml</suiteXmlFile>-->
+                                <suiteXmlFile>${project.basedir}/src/main/resources/suites/Firefox.xml</suiteXmlFile>
                                 <!--&lt;!&ndash;<suiteXmlFile>${project.basedir}/src/main/resources/suites/IE.xml</suiteXmlFile>&ndash;&gt;-->
                                 <!--&lt;!&ndash;<suiteXmlFile>${project.basedir}/src/main/resources/suites/Edge.xml</suiteXmlFile>&ndash;&gt;-->
                                 <!--<suiteXmlFile>${project.basedir}/src/main/resources/suites/Safari.xml</suiteXmlFile>-->

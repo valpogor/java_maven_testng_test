@@ -60,6 +60,16 @@ public class Utility extends LoginPage {
         wait.until(ExpectedConditions.urlContains(expectedString));
     }
 
+    public static void waitForTitleIs(WebDriver driver, String titleIs, int TIMEOUT) {
+        WebDriverWait wait = new WebDriverWait(driver, TIMEOUT);
+        wait.until(ExpectedConditions.titleIs(titleIs));
+    }
+
+    public static void waitForElementVisible(WebDriver driver, By element, int TIMEOUT) {
+        WebDriverWait wait = new WebDriverWait(driver, TIMEOUT);
+        wait.until(ExpectedConditions.presenceOfElementLocated(element));
+    }
+
     public static File[] readAllNamesFilesFromDesktop() {
         File folder = new File(System.getProperty("user.home"), "/Desktop");
         File[] listOfFiles = folder.listFiles();
