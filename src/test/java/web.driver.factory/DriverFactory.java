@@ -56,7 +56,9 @@ public class DriverFactory {
     }
 
     @AfterMethod(alwaysRun = true)
+
     public void clearCookies() throws Exception {
+        quitDriver();
 //        if(driver!=null)
 //            driver.manage().deleteAllCookies();
     }
@@ -106,7 +108,6 @@ public class DriverFactory {
 
     @AfterSuite(alwaysRun = true)
     public static void closeDriverObjects() {
-        if(null!=driverThread.get()){
-            driverThread.get().quitDriver();}
+        quitDriver();
     }
 }

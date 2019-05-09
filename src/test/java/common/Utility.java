@@ -69,6 +69,11 @@ public class Utility extends LoginPage {
         wait.until(ExpectedConditions.presenceOfElementLocated(element));
     }
 
+    public static void waitForElementDisappear(WebDriver driver, By element, int TIMEOUT) {
+        WebDriverWait wait = new WebDriverWait(driver, TIMEOUT);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(element));
+    }
+
     public static File[] readAllNamesFilesFromDesktop() {
         File folder = new File(System.getProperty("user.home"), "/Desktop");
         File[] listOfFiles = folder.listFiles();
@@ -195,7 +200,7 @@ public class Utility extends LoginPage {
         driver.get("https://www.gmail.com");
         driver.findElement(By.id("identifierId")).sendKeys("qalifetest@gmail.com");
         driver.findElement(By.id("identifierId")).sendKeys(Keys.ENTER);
-        driver.findElement(By.name("password")).sendKeys("Deploy19");
+        driver.findElement(By.name("password")).sendKeys("");
         driver.findElement(By.name("password")).sendKeys(Keys.ENTER);
         Utility.waitForUrlContains(driver, "/#inbox", 10);
         Assert.assertTrue(driver.getCurrentUrl().contains("/#inbox"));
