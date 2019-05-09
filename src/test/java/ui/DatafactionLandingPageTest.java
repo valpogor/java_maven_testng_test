@@ -1,19 +1,17 @@
 package ui;
 
-import common.Utility;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
-import pages.LoginPage;
+import common.*;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.openqa.selenium.*;
+import org.testng.*;
+import org.testng.annotations.*;
+import pages.*;
 import web.driver.factory.DriverFactory;
 
-import java.util.List;
+import java.io.FileOutputStream;
+import java.util.*;
 
 public class DatafactionLandingPageTest extends LoginPage {
 
@@ -53,16 +51,80 @@ public class DatafactionLandingPageTest extends LoginPage {
 //        driver.get("https://www.datafaction.com/resources.html");
 //        Thread.sleep(3000);// waiter 1 sec
 //        driver.findElement(By.xpath("//*[@id=\"w-vulcan-v2-193\"]/div[2]/div[2]/div/div[1]/div")).click();//click on button blog
-//        Thread.sleep(20000);// waiter 20 sec
+//        Thread.sleep(5000);// waiter 20 sec
+//        Assert.assertTrue(driver.findElement(By.xpath("//*[@id=\"w-vulcan-v2-156\"]/div[2]/div[2]/div/div[1]/div")).isDisplayed());
+//    }
+//
+//    //AUT-1174 Verify videoplayer start button on Youtube
+//    @Test
+//    @Parameters({"browser"})
+//    public void VerifyVPStartBtnOnYoutube(String browser) throws Exception{
+//        WebDriver driver = DriverFactory.getDriver(browser);
+//        driver.get("https://www.youtube.com");
+//        driver.findElement(By.xpath("(//*[@id='dismissable'])[2]")).click();//click on button blog
+//        Thread.sleep(5000);// waiter 20 sec
+//        Assert.assertTrue(driver.getCurrentUrl().contains("https://www.youtube.com/watch"));
+//        Assert.assertFalse(driver.getTitle().matches("youtube"));
 //    }
 
-    //AUT-1173 Verify videoplayer start button on Youtube
+//    //AUT-2011 Verify ability to login Gmail account
+//    @Test
+//    @Parameters({"browser"})
+//    public void VerifyAbilityLoginGmailAcc(String browser){
+//        Utility.loginToGmail(browser);
+//    }
+
+//    //AUT-2012 Verify ability to login Gmail account with specific account
+////    @Test
+//    @Parameters({"browser"})
+//    public void VerifyAbilityLoginGmailAccByUser(String browser){
+//        Utility.loginToGmailByUser(browser, "vova@gmail.com", "hvkjvkjvlkblkblkbn,");
+//    }
+
+    //AUT-2013 Verify ability to login Gmail account with invalid user login credentials
     @Test
     @Parameters({"browser"})
-    public void VerifyVPStartBtnOnYoutube(String browser) throws Exception{
-        WebDriver driver = DriverFactory.getDriver(browser);
-        driver.get("https://www.youtube.com");
-        driver.findElement(By.xpath("(//*[@id='dismissable'])[2]")).click();//click on button blog
-        Thread.sleep(20000);// waiter 20 sec
+    public void VerifyAbilityLoginGmailAccInvalid(String browser) {
+        Utility.loginToGmailNegat(browser, ".");
     }
+
+    //AUT-2013 Verify ability to login Gmail account with invalid user login credentials
+    @Test
+    @Parameters({"browser"})
+    public void VerifyAbilityLoginGmailAccInvalid1(String browser) {
+        Utility.loginToGmailNegat(browser, "fgxhgchgjc@@gmail.com");
+    }
+
+    //AUT-2013 Verify ability to login Gmail account with invalid user login credentials
+    @Test
+    @Parameters({"browser"})
+    public void VerifyAbilityLoginGmailAccInvalid2(String browser) {
+        Utility.loginToGmailNegat(browser, "@gmail.com");
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    //AUT-1175 Verify ability to gmail login
+//    @Test
+//    @Parameters({"browser"})
+//    public void VerifyGmailLogin(String browser) throws Exception{
+//        WebDriver driver = DriverFactory.getDriver(browser);
+//        driver.get("https://www.gmail.com");
+//        driver.findElement(By.id("identifierId")).sendKeys("qalifetest@gmail.com",Keys.ENTER);
+//        Thread.sleep(3000);
+//        driver.findElement(By.name("password")).sendKeys("Deploy19",Keys.ENTER);
+//        Thread.sleep(4000);
+//    }
+
+
 }

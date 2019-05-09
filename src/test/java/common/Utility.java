@@ -1,14 +1,13 @@
 package common;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import pages.LoginPage;
+import web.driver.factory.DriverFactory;
 
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
@@ -189,6 +188,37 @@ public class Utility extends LoginPage {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    public static void loginToGmail(String browser) {
+        WebDriver driver = DriverFactory.getDriver(browser);
+        driver.get("https://www.gmail.com");
+        driver.findElement(By.id("identifierId")).sendKeys("qalifetest@gmail.com");
+        driver.findElement(By.id("identifierId")).sendKeys(Keys.ENTER);
+        driver.findElement(By.name("password")).sendKeys("Deploy19");
+        driver.findElement(By.name("password")).sendKeys(Keys.ENTER);
+        Utility.waitForUrlContains(driver, "/#inbox", 10);
+        Assert.assertTrue(driver.getCurrentUrl().contains("/#inbox"));
+    }
+
+    public static void loginToGmailByUser(String browser, String username, String password) {
+        WebDriver driver = DriverFactory.getDriver(browser);
+        driver.get("https://www.gmail.com");
+        driver.findElement(By.id("identifierId")).sendKeys(username);
+        driver.findElement(By.id("identifierId")).sendKeys(Keys.ENTER);
+        driver.findElement(By.name("password")).sendKeys(password);
+        driver.findElement(By.name("password")).sendKeys(Keys.ENTER);
+        Utility.waitForUrlContains(driver, "/#inbox", 10);
+        Assert.assertTrue(driver.getCurrentUrl().contains("/#inbox"));
+    }
+
+    public static void loginToGmailNegat(String browser, String user) {
+        WebDriver driver = DriverFactory.getDriver(browser);
+        driver.get("https://www.gmail.com");
+        driver.findElement(By.id("identifierId")).sendKeys(user);
+        driver.findElement(By.id("identifierId")).sendKeys(Keys.ENTER);
+        Utility.waitForElementVisible(driver, By.xpath("//*[@class='TQGan']"), 10);
+        Assert.assertTrue(driver.findElement(By.xpath("//*[@class='TQGan']")).isDisplayed()||driver.findElement(By.xpath("//*[@class='TQGan2khvkhjv']")).isDisplayed());
     }
 }
 
