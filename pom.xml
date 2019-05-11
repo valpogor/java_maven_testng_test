@@ -367,8 +367,8 @@
                             <suiteXmlFiles>
                                 <suiteXmlFile>${project.basedir}/src/main/resources/suites/Chrome.xml</suiteXmlFile>
                                 <!--<suiteXmlFile>${project.basedir}/src/main/resources/suites/Firefox.xml</suiteXmlFile>-->
-                                <!--&lt;!&ndash;<suiteXmlFile>${project.basedir}/src/main/resources/suites/IE.xml</suiteXmlFile>&ndash;&gt;-->
-                                <!--&lt;!&ndash;<suiteXmlFile>${project.basedir}/src/main/resources/suites/Edge.xml</suiteXmlFile>&ndash;&gt;-->
+                                <!--<suiteXmlFile>${project.basedir}/src/main/resources/suites/IE.xml</suiteXmlFile>-->
+                                <!--<suiteXmlFile>${project.basedir}/src/main/resources/suites/Edge.xml</suiteXmlFile>-->
                                 <!--<suiteXmlFile>${project.basedir}/src/main/resources/suites/Safari.xml</suiteXmlFile>-->
                                 <!--<suiteXmlFile>${project.basedir}/src/main/resources/suites/Unit.xml</suiteXmlFile>-->
                                 <!--<suiteXmlFile>${project.basedir}/src/main/resources/suites/Api.xml</suiteXmlFile>-->

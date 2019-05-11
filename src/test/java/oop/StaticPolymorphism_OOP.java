@@ -37,4 +37,19 @@ public class StaticPolymorphism_OOP extends LoginPage{
         size("kjbvkglkblgblibhlihblblblblblbnlbnlblblblblblkbjk");
         size("kjbvkglljblkbhlkhblhblkbl;hnl;hnlkhnkblgblibhlihblblblblblbnlbnlblblblblblkbjk");
     }
+
+    @Test
+    public void TestIncrement() {
+        int a, i = 7;
+        a = ++i;
+        System.out.println("\n" + ANSI_CYAN + "a = "+ a+ "\ni = "+i+ANSI_RESET+"\n");
+
+        int b, v = 7;
+        b = v++;
+        System.out.println("\n" + ANSI_CYAN + "b = "+ b+ "\nv= "+v+ANSI_RESET+"\n");
+
+        int c = 7;
+        System.out.println("\n" + ANSI_CYAN + ++c + ++c*7 + 13*c++ +ANSI_RESET+"\n");
+
+    }
 }
