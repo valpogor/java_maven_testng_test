@@ -56,7 +56,7 @@ public class DatafactionLinksLoopsTest extends LoginPage {
         Set<String> set = new HashSet<>(urls);
         urls.clear();
         urls.addAll(set);
-
+        System.out.println("Total no of links Available after : " + urls.size());
 // navigate to each Link on the webpage
         for (int i = 0; i < urls.size(); i++) {
             driver.navigate().to(urls.get(i));//navigation
@@ -72,16 +72,16 @@ public class DatafactionLinksLoopsTest extends LoginPage {
         }
     }
 
-    @Test
-    @Parameters({"browser"})
-    public void DatafactionPrintNameAllLinks(String browser) throws InterruptedException {
-        WebDriver driver = DriverFactory.getDriver(browser);
-        driver.get("https://datafaction.com");
-        List<WebElement> linksize = driver.findElements(By.tagName("a"));//found all tags a - all links
-        Iterator<WebElement> itr = linksize.iterator();
-        while(itr.hasNext()) {
-            System.out.println(itr.next().getText());
-        }
-    }
+//    @Test
+//    @Parameters({"browser"})
+//    public void DatafactionPrintNameAllLinks(String browser) throws InterruptedException {
+//        WebDriver driver = DriverFactory.getDriver(browser);
+//        driver.get("https://datafaction.com");
+//        List<WebElement> linksize = driver.findElements(By.tagName("a"));//found all tags a - all links
+//        Iterator<WebElement> itr = linksize.iterator();
+//        while(itr.hasNext()) {
+//            System.out.println(itr.next().getText());
+//        }
+//    }
 
 }

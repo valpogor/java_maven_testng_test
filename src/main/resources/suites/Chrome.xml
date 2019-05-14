@@ -9,7 +9,8 @@
             <!--<class name="LandingPageTest"/>-->
             <!--<class name="NavigationToGoogle"/>-->
             <!--<class name="ui.DatafactionLandingPageTest"/>-->
-            <class name="ui.DatafactionLinksLoopsTest"/>
+            <!--<class name="ui.DatafactionLinksLoopsTest"/>-->
+            <class name="ui.EbayTXTXLSTest"/>
         </classes>
     </test>
 </suite>

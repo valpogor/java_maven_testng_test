@@ -1,6 +1,7 @@
 package unit;
 
 import com.github.javafaker.Faker;
+import common.Utility;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 
@@ -17,38 +18,82 @@ public class TxtCreateReadModifyDeleteTest extends LoginPage {
     public static final String ANSI_RED_BACKGROUND = "\u001B[41m";
     public static final String ANSI_GREEN_BACKGROUND = "\u001B[42m";
     public static final String ANSI_RESET = "\u001B[0m";
+
     @Test
     public void createEmptyTxtOnDesktop() throws Exception {
-        File desktop = new File(System.getProperty("user.home"), "/Desktop");
-        DateFormat df = new SimpleDateFormat("ddMMyy");
-        Date dateobj = new Date();
-        System.out.println(df.format(dateobj));
-        String firstName = faker.name().firstName();
-        String random = faker.gameOfThrones().character();
-        File textFile = new File(desktop, df.format(dateobj) + "_" + random + firstName + ".html");
-        BufferedWriter out = new BufferedWriter(new FileWriter(textFile));
-        out.write("<!DOCTYPE html>\n" +
+        Utility.createFileHtmlOnDesktop("kjhvkjbln.:>Ln;ln;legn;klwneqrgklnqwr:GKLNq.wkrnljkwbgl/kbwlkebgkl");
+        Utility.createFileHtmlOnDesktop("<!DOCTYPE html>\n" +
                 "<html>\n" +
+                "<head>\n" +
+                "<style>\n" +
+                "table {\n" +
+                "  font-family: arial, sans-serif;\n" +
+                "  border-collapse: collapse;\n" +
+                "  width: 100%;\n" +
+                "}\n" +
+                "\n" +
+                "td, th {\n" +
+                "  border: 1px solid #dddddd;\n" +
+                "  text-align: left;\n" +
+                "  padding: 8px;\n" +
+                "}\n" +
+                "\n" +
+                "tr:nth-child(even) {\n" +
+                "  background-color: #dddddd;\n" +
+                "}\n" +
+                "</style>\n" +
+                "</head>\n" +
                 "<body>\n" +
                 "\n" +
-                "<h2>HTML Forms</h2>\n" +
+                "<h2>HTML Table</h2>\n" +
                 "\n" +
-                "<form action=\"/action_page.php\">\n" +
-                "  First name:<br>\n" +
-                "  <input type=\"text\" name=\"firstname\" value=\"Test1\">\n" +
-                "  <br>\n" +
-                "  Last name:<br>\n" +
-                "  <input type=\"text\" name=\"lastname\" value=\"Mouse\">\n" +
-                "  <br><br>\n" +
-                "  <input type=\"submit\" value=\"Submit\">\n" +
-                "</form> \n" +
-                "\n" +
-                "<p>If you click the \"Submit\" button, the form-data will be sent to a page called \"/action_page.php\".</p>\n" +
+                "<table>\n" +
+                "  <tr>\n" +
+                "    <th>Company</th>\n" +
+                "    <th>Contact</th>\n" +
+                "    <th>Country</th>\n" +
+                "  </tr>\n" +
+                "  <tr>\n" +
+                "    <td>Alfreds Futterkiste</td>\n" +
+                "    <td>Maria Anders</td>\n" +
+                "    <td>Germany</td>\n" +
+                "  </tr>\n" +
+                "  <tr>\n" +
+                "    <td>Centro comercial Moctezuma</td>\n" +
+                "    <td>Francisco Chang</td>\n" +
+                "    <td>Mexico</td>\n" +
+                "  </tr>\n" +
+                "  <tr>\n" +
+                "    <td>Ernst Handel</td>\n" +
+                "    <td>Roland Mendel</td>\n" +
+                "    <td>Austria</td>\n" +
+                "  </tr>\n" +
+                "  <tr>\n" +
+                "    <td>Island Trading</td>\n" +
+                "    <td>Helen Bennett</td>\n" +
+                "    <td>UK</td>\n" +
+                "  </tr>\n" +
+                "  <tr>\n" +
+                "    <td>Laughing Bacchus Winecellars</td>\n" +
+                "    <td>Yoshi Tannamuri</td>\n" +
+                "    <td>Canada</td>\n" +
+                "  </tr>\n" +
+                "  <tr>\n" +
+                "    <td>Magazzini Alimentari Riuniti</td>\n" +
+                "    <td>Giovanni Rovelli</td>\n" +
+                "    <td>Italy</td>\n" +
+                "  </tr>\n" +
+                "</table>\n" +
                 "\n" +
                 "</body>\n" +
                 "</html>\n");
-        out.close();
     }
+
+
+
+
+
+
     @Test
     public void createRandomFakeNameLastAddress() throws Exception{
         String name = faker.name().fullName();
@@ -61,6 +106,10 @@ public class TxtCreateReadModifyDeleteTest extends LoginPage {
         System.out.print(ANSI_RED_BACKGROUND + gameOfThronesChar +"\n"+ ANSI_RESET);
 
     }
+
+
+
+
     @Test
     public void createRandomNumbers() {
         // create instance of Random class

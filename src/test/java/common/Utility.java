@@ -8,6 +8,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import pages.LoginPage;
 import web.driver.factory.DriverFactory;
+import com.github.javafaker.Faker;
 
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
@@ -19,12 +20,13 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.text.DateFormat;
 import java.text.NumberFormat;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Properties;
+import java.text.SimpleDateFormat;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -224,6 +226,20 @@ public class Utility extends LoginPage {
         driver.findElement(By.id("identifierId")).sendKeys(Keys.ENTER);
         Utility.waitForElementVisible(driver, By.xpath("//*[@class='TQGan']"), 10);
         Assert.assertTrue(driver.findElement(By.xpath("//*[@class='TQGan']")).isDisplayed()||driver.findElement(By.xpath("//*[@class='TQGan2khvkhjv']")).isDisplayed());
+    }
+
+    public static void createFileHtmlOnDesktop(String output) throws Exception {
+        Faker faker = new Faker();
+        File desktop = new File(System.getProperty("user.home"), "/Desktop");
+        DateFormat dateFormat = new SimpleDateFormat("ddMMyy");
+        Date dateobj = new Date();
+        System.out.println(dateFormat.format(dateobj));
+        String firstName = faker.name().firstName();
+        String random = faker.gameOfThrones().character();
+        File textFile = new File(desktop, dateFormat.format(dateobj) + "_" + random +"_"+firstName + ".html");
+        BufferedWriter out = new BufferedWriter(new FileWriter(textFile));
+        out.write(output);
+        out.close();
     }
 }
 
