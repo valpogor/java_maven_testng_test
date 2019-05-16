@@ -10,6 +10,8 @@ public class EbayTXTXLSPage extends Page {
     public final String ebayUrl;
     public final String ebayTextbookNameLoc;
     public final String ebayTextbookPriceLoc;
+    public final String ebayPickOnlyUrl;
+    public final String ebayTextbookSecInfoLoc;
 
 
     public EbayTXTXLSPage() {
@@ -19,6 +21,8 @@ public class EbayTXTXLSPage extends Page {
         ebayUrl = this.getResourceBundle().getString("ebayUrl");
         ebayTextbookNameLoc = this.getResourceBundle().getString("ebayTextbookNameLoc");
         ebayTextbookPriceLoc = this.getResourceBundle().getString("ebayTextbookPriceLoc");
+        ebayPickOnlyUrl = this.getResourceBundle().getString("ebayPickOnlyUrl");
+        ebayTextbookSecInfoLoc = this.getResourceBundle().getString("ebayTextbookSecInfoLoc");
 
     }
     @Override

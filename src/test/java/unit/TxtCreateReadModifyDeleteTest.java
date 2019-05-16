@@ -4,16 +4,10 @@ import com.github.javafaker.Faker;
 import common.Utility;
 import org.testng.annotations.Test;
 import pages.LoginPage;
-
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Random;
 
 public class TxtCreateReadModifyDeleteTest extends LoginPage {
+
     public Faker faker = new Faker();
     public static final String ANSI_RED_BACKGROUND = "\u001B[41m";
     public static final String ANSI_GREEN_BACKGROUND = "\u001B[42m";
@@ -89,11 +83,6 @@ public class TxtCreateReadModifyDeleteTest extends LoginPage {
                 "</html>\n");
     }
 
-
-
-
-
-
     @Test
     public void createRandomFakeNameLastAddress() throws Exception{
         String name = faker.name().fullName();
@@ -104,17 +93,12 @@ public class TxtCreateReadModifyDeleteTest extends LoginPage {
         System.out.print(ANSI_RED_BACKGROUND + lastName +"\n"+ ANSI_RESET);
         System.out.print(ANSI_GREEN_BACKGROUND + streetAddress +"\n"+ ANSI_RESET);
         System.out.print(ANSI_RED_BACKGROUND + gameOfThronesChar +"\n"+ ANSI_RESET);
-
     }
-
-
-
 
     @Test
     public void createRandomNumbers() {
         // create instance of Random class
         Random rand = new Random();
-
         // Generate random integers in range 0 to 999
         int rand_int1 = rand.nextInt(1000);
         int rand_int2 = rand.nextInt(1000);
