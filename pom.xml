@@ -370,9 +370,7 @@
                                 <!--<suiteXmlFile>${project.basedir}/src/main/resources/suites/IE.xml</suiteXmlFile>-->
                                 <!--<suiteXmlFile>${project.basedir}/src/main/resources/suites/Edge.xml</suiteXmlFile>-->
                                 <!--<suiteXmlFile>${project.basedir}/src/main/resources/suites/Safari.xml</suiteXmlFile>-->
-                                <!--<suiteXmlFile>${project.basedir}/src/main/resources/suites/Unit.xml</suiteXmlFile>-->
-                                <!--<suiteXmlFile>${project.basedir}/src/main/resources/suites/Api.xml</suiteXmlFile>-->
-                                <!--<suiteXmlFile>${project.basedir}/src/main/resources/suites/Api2.xml</suiteXmlFile>-->
+                                <suiteXmlFile>${project.basedir}/src/main/resources/suites/Unit.xml</suiteXmlFile>
                             </suiteXmlFiles>
                         </configuration>
                     </plugin>

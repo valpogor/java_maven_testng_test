@@ -1,11 +1,8 @@
 package ui;
 
-import common.Utility;
-import org.apache.spark.sql.execution.columnar.NULL;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.LoginPage;
@@ -72,16 +69,16 @@ public class DatafactionLinksLoopsTest extends LoginPage {
         }
     }
 
-//    @Test
-//    @Parameters({"browser"})
-//    public void DatafactionPrintNameAllLinks(String browser) throws InterruptedException {
-//        WebDriver driver = DriverFactory.getDriver(browser);
-//        driver.get("https://datafaction.com");
-//        List<WebElement> linksize = driver.findElements(By.tagName("a"));//found all tags a - all links
-//        Iterator<WebElement> itr = linksize.iterator();
-//        while(itr.hasNext()) {
-//            System.out.println(itr.next().getText());
-//        }
-//    }
+    @Test
+    @Parameters({"browser"})
+    public void DatafactionPrintNameAllLinks(String browser) throws InterruptedException {
+        WebDriver driver = DriverFactory.getDriver(browser);
+        driver.get("https://datafaction.com");
+        List<WebElement> linksize = driver.findElements(By.tagName("a"));//found all tags a - all links
+        Iterator<WebElement> itr = linksize.iterator();
+        while(itr.hasNext()) {
+            System.out.println(itr.next().getText());
+        }
+    }
 
 }

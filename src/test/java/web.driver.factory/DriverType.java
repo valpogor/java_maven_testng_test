@@ -5,9 +5,6 @@ import org.openqa.selenium.chrome.*;
 import org.openqa.selenium.firefox.*;
 import org.openqa.selenium.opera.*;
 import org.openqa.selenium.remote.*;
-import java.io.*;
-import java.util.*;
-import static web.driver.factory.DriverFactory.*;
 
 
 public enum DriverType implements DriverSetup {

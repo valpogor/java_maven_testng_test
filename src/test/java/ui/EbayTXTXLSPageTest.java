@@ -58,37 +58,28 @@ public class EbayTXTXLSPageTest extends EbayTXTXLSPage {
             ph.add(prices.get(i).getText());
             st.add(secondtitle.get(i).getText());
         }
-        System.out.println("namestxt" +namestxt.size()+"\n");
-        System.out.println("ph" +ph.size()+"\n");
-        System.out.println("sssssss" +st.size()+"\n");
-        if(namestxt.size()>50){
 
+        //Create file xls format on DESKTOP
+        String yelpfile = System.getProperty("user.home")+"/Desktop/ebayTitlePricePickOnlyTextbooks.xls";
+        HSSFWorkbook workbook = new HSSFWorkbook();
+        HSSFSheet sheet = workbook.createSheet("Books");
+        HSSFSheet sheet2 = workbook.createSheet("ID");
+        HSSFSheet sheet3 = workbook.createSheet("Names");
+        HSSFSheet sheet4 = workbook.createSheet("Pages");
+        HSSFRow rowhead = sheet.createRow((short)0);
+        rowhead.createCell(0).setCellValue("Title");
+        rowhead.createCell(1).setCellValue("Second Title");
+        rowhead.createCell(2).setCellValue("Salary");
+        for (int i = 0; i < namestxt.size(); i++) {
+            HSSFRow rows = sheet.createRow((short)i+1);
+            rows.createCell(0).setCellValue(namestxt.get(i));
+            rows.createCell(1).setCellValue(st.get(i));
+            rows.createCell(2).setCellValue(ph.get(i));
         }
-
-
-
-
-//        //Create file xls format on DESKTOP
-//        String yelpfile = System.getProperty("user.home")+"/Desktop/ebayTitlePricePickOnlyTextbooks.xls";
-//        HSSFWorkbook workbook = new HSSFWorkbook();
-//        HSSFSheet sheet = workbook.createSheet("Books");
-//        HSSFSheet sheet2 = workbook.createSheet("ID");
-//        HSSFSheet sheet3 = workbook.createSheet("Names");
-//        HSSFSheet sheet4 = workbook.createSheet("Pages");
-//        HSSFRow rowhead = sheet.createRow((short)0);
-//        rowhead.createCell(0).setCellValue("Title");
-//        rowhead.createCell(1).setCellValue("Second Title");
-//        rowhead.createCell(2).setCellValue("Salary");
-//        for (int i = 0; i < namestxt.size(); i++) {
-//            HSSFRow rows = sheet.createRow((short)i+1);
-//            rows.createCell(0).setCellValue(namestxt.get(i));
-//            rows.createCell(1).setCellValue(st.get(i));
-//            rows.createCell(2).setCellValue(ph.get(i));
-//        }
-//        //print out to Desktop
-//        FileOutputStream fileOut = new FileOutputStream(yelpfile);
-//        workbook.write(fileOut);
-//        fileOut.close();
-//        workbook.close();
+        //print out to Desktop
+        FileOutputStream fileOut = new FileOutputStream(yelpfile);
+        workbook.write(fileOut);
+        fileOut.close();
+        workbook.close();
     }
 }

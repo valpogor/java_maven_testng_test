@@ -4,13 +4,12 @@
     <test name="regression" preserve-order="false">
         <parameter name="browser" value="Chrome"/>
         <parameter name="team" value="1"/>
-        <parameter name="run" value="no"/>
         <classes>
-            <!--<class name="LoginPageTest"/>-->
-            <!--<class name="LandingPageTest"/>-->
-            <!--<class name="NavigationToGoogle"/>-->
-            <!--<class name="ui.DatafactionLandingPageTest"/>-->
-            <!--<class name="ui.DatafactionLinksLoopsTest"/>-->
+            <class name="ui.NavigationToGoogle"/>
+            <class name="ui.LoginPageTest"/>
+            <class name="ui.LandingPageTest"/>
+            <class name="ui.DatafactionLandingPageTest"/>
+            <class name="ui.DatafactionLinksLoopsTest"/>
             <class name="ui.EbayTXTXLSPageTest"/>
         </classes>
     </test>

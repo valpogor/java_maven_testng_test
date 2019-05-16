@@ -1,17 +1,11 @@
 package ui;
 
 import common.*;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.openqa.selenium.*;
 import org.testng.*;
 import org.testng.annotations.*;
 import pages.*;
 import web.driver.factory.DriverFactory;
-
-import java.io.FileOutputStream;
-import java.util.*;
 
 public class DatafactionLandingPageTest extends LoginPage {
 
@@ -68,7 +62,7 @@ public class DatafactionLandingPageTest extends LoginPage {
     }
 
     //AUT-2011 Verify ability to login Gmail account
-    @Test
+//    @Test
     @Parameters({"browser"})
     public void VerifyAbilityLoginGmailAcc(String browser){
         Utility.loginToGmail(browser);

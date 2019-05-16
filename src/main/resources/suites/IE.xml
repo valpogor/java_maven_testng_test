@@ -5,9 +5,7 @@
         <parameter name="browser" value="IE"/>
         <parameter name="team" value="1"/>
         <classes>
-            <class name="LoginPageTest"/>
-            <class name="LandingPageTest"/>
-            <class name="NavigationToGoogle"/>
+
         </classes>
     </test>
 </suite>
