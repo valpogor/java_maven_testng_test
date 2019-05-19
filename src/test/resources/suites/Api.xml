@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="10" verbose="1" name="Api" parallel="methods">
+    <test name="regression" preserve-order="false">
+        <classes>
+            <class name="ApiTests.restassured.RestAssuredJSONExamplesTest"/>
+            <class name="ApiTests.restassured.RestAssuredXMLExamplesTest"/>
+            <class name="ApiTests.api.version_2_3_0.unittests.RegexUrlParseExampleTest"/>
+            <class name="ApiTests.api.version_2_3_0.unittests.UrlParamsTest"/>
+            <class name="ApiTests.api.version_2_3_0.tracksapi.TracksResponseProcessor"/>
+        </classes>
+    </test>
+</suite>

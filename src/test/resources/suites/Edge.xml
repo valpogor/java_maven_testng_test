@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" verbose="2" name="Edge" parallel="tests">
+    <test name="regression" preserve-order="false">
+        <parameter name="browser" value="Edge"/>
+        <parameter name="team" value="1"/>
+        <classes>
+            <class name="ui.DatafactionLandingPageTest"/>
+            <class name="ui.DatafactionLinksLoopsTest"/>
+            <class name="ui.EbayTXTXLSPageTest"/>
+            <class name="ui.FoxSeleniumTest"/>
+            <class name="ui.LoginPageTest"/>
+            <class name="ui.NavigationToGoogle"/>
+            <class name="ui.YelpFindAllNamesPhones"/>
+            <class name="smoke.SmokeTest"/>
+        </classes>
+    </test>
+</suite>

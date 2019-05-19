@@ -280,8 +280,8 @@
                                 <!--&lt;!&ndash;<suiteXmlFile>${project.basedir}/src/test/resources/suites/IE.xml</suiteXmlFile>&ndash;&gt;-->
                                 <!--&lt;!&ndash;<suiteXmlFile>${project.basedir}/src/test/resources/suites/Edge.xml</suiteXmlFile>&ndash;&gt;-->
                                 <!--<suiteXmlFile>${project.basedir}/src/test/resources/suites/Safari.xml</suiteXmlFile>-->
-                                <suiteXmlFile>${project.basedir}/src/test/resources/suites/Unit.xml</suiteXmlFile>
-                                <suiteXmlFile>${project.basedir}/src/test/resources/suites/Api.xml</suiteXmlFile>
+                                <!--<suiteXmlFile>${project.basedir}/src/test/resources/suites/Unit.xml</suiteXmlFile>-->
+                                <!--<suiteXmlFile>${project.basedir}/src/test/resources/suites/Api.xml</suiteXmlFile>-->
                             </suiteXmlFiles>
                         </configuration>
                     </plugin>

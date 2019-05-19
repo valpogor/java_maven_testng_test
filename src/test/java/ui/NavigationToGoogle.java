@@ -37,7 +37,7 @@ public class NavigationToGoogle extends LoginPage{
             el.sendKeys("QA Job Market ");//send some text to field  Search
             el.submit();
             Thread.sleep(3000);
-            Assert.assertTrue(driver.findElements(By.partialLinkText("Video")).size()>1);
+            Assert.assertTrue(driver.findElements(By.xpath("//a[contains(text(), 'QA Job Market')]")).size()!=0);
         }
 
         @Test
@@ -45,10 +45,11 @@ public class NavigationToGoogle extends LoginPage{
         public static void searchYahoo(String browser) {
             WebDriver driver = DriverFactory.getDriver(browser);
             driver.get("http://www.yahoo.com");// open browser , navigate to google.com
-            WebElement el = driver.findElement(By.xpath("//span[contains(text(), 'Search')]")); //found field inside DOM by name
+            WebElement el = driver.findElement(By.name("p")); //found field inside DOM by name
             el.sendKeys("QA Job Market");//send some text to field Google Search
             el.submit();
-            Assert.assertTrue(driver.findElements(By.partialLinkText("QA Job Market")).size()>1);
+            Utility.waitForElementVisible(driver, By.xpath("//a[contains(text(), 'QA Job Market')]"), 10);
+            Assert.assertTrue(driver.findElements(By.xpath("//a[contains(text(), 'QA Job Market')]")).size()!=0);
         }
     @Test
     @Parameters({"browser"})
