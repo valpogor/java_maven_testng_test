@@ -11,13 +11,10 @@ package unit;//      Top 10 algorithms in Interview Questions
 //        8. String / Array
 //https://www.geeksforgeeks.org/
 //https://stackoverflow.com/
-
 import org.testng.annotations.Test;
 import pages.LoginPage;
-
-import java.util.Iterator;
-import java.util.LinkedList;
-
+import java.io.*;
+import java.util.*;
 public class Algoritms extends LoginPage {
     class Graph{
     // Java program to print BFS traversal from a given source vertex.

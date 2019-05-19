@@ -4,7 +4,7 @@ package oop;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 
-public class Abstraction_OOP extends LoginPage {
+public class Abstraction_OOP extends LoginPage{
     abstract class Animal {
         // abstract methods
         abstract void move();

@@ -5,7 +5,7 @@ import pages.InterfacesOOP;
 import pages.LoginPage;
 
 //    Interfaces
-public class InterfacesOOPTest extends LoginPage {
+public class InterfacesOOPTest extends LoginPage{
     @Test
     public static void myEagle() {
         InterfacesOOP.Eagle myEagle = new InterfacesOOP.Eagle();

@@ -1,34 +1,21 @@
 package common;
 
+import com.github.javafaker.*;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import pages.LoginPage;
-import web.driver.factory.DriverFactory;
-import com.github.javafaker.Faker;
-
-import javax.activation.DataHandler;
-import javax.activation.DataSource;
-import javax.activation.FileDataSource;
-import javax.mail.*;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import java.io.BufferedWriter;
+import org.openqa.selenium.support.ui.*;
+import org.testng.*;
+import pages.*;
+import java.io.*;
 import java.io.File;
-import java.io.FileWriter;
-import java.text.DateFormat;
-import java.text.NumberFormat;
-import java.text.SimpleDateFormat;
+import java.text.*;
 import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import javax.activation.*;
+import javax.mail.*;
+import javax.mail.internet.*;
+import javax.xml.parsers.*;
+import org.w3c.dom.*;
+import web.driver.factory.DriverFactory;
+import java.util.regex.*;
 
 public class Utility extends LoginPage {
 
@@ -59,21 +46,6 @@ public class Utility extends LoginPage {
     public static void waitForUrlContains(WebDriver driver, String expectedString, int TIMEOUT) {
         WebDriverWait wait = new WebDriverWait(driver, TIMEOUT);
         wait.until(ExpectedConditions.urlContains(expectedString));
-    }
-
-    public static void waitForTitleIs(WebDriver driver, String titleIs, int TIMEOUT) {
-        WebDriverWait wait = new WebDriverWait(driver, TIMEOUT);
-        wait.until(ExpectedConditions.titleIs(titleIs));
-    }
-
-    public static void waitForElementVisible(WebDriver driver, By element, int TIMEOUT) {
-        WebDriverWait wait = new WebDriverWait(driver, TIMEOUT);
-        wait.until(ExpectedConditions.presenceOfElementLocated(element));
-    }
-
-    public static void waitForElementDisappear(WebDriver driver, By element, int TIMEOUT) {
-        WebDriverWait wait = new WebDriverWait(driver, TIMEOUT);
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(element));
     }
 
     public static File[] readAllNamesFilesFromDesktop() {
@@ -195,6 +167,21 @@ public class Utility extends LoginPage {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    public static void waitForTitleIs(WebDriver driver, String titleIs, int TIMEOUT) {
+        WebDriverWait wait = new WebDriverWait(driver, TIMEOUT);
+        wait.until(ExpectedConditions.titleIs(titleIs));
+    }
+
+    public static void waitForElementVisible(WebDriver driver, By element, int TIMEOUT) {
+        WebDriverWait wait = new WebDriverWait(driver, TIMEOUT);
+        wait.until(ExpectedConditions.presenceOfElementLocated(element));
+    }
+
+    public static void waitForElementDisappear(WebDriver driver, By element, int TIMEOUT) {
+        WebDriverWait wait = new WebDriverWait(driver, TIMEOUT);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(element));
     }
 
     public static void loginToGmail(String browser) {

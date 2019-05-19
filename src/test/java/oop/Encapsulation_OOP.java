@@ -3,7 +3,7 @@ package oop;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 
-public class Encapsulation_OOP extends LoginPage {
+public class Encapsulation_OOP extends LoginPage{
     static class Animal {
         private String name;
         private double averageWeight;

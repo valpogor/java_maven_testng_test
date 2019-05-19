@@ -1,10 +1,13 @@
 package ui;
 
+import common.Utility;
 import org.apache.poi.hssf.usermodel.*;
 import org.openqa.selenium.*;
 import org.testng.annotations.*;
 import pages.EbayTXTXLSPage;
 import web.driver.factory.DriverFactory;
+
+import java.io.File;
 import java.io.FileOutputStream;
 import java.util.*;
 
@@ -40,6 +43,7 @@ public class EbayTXTXLSPageTest extends EbayTXTXLSPage {
         workbook.write(fileOut);
         fileOut.close();
         workbook.close();
+        Utility.deleteFileOnDesktop(new File(yelpfile));
     }
 
     @Test(priority = 1)
@@ -81,5 +85,6 @@ public class EbayTXTXLSPageTest extends EbayTXTXLSPage {
         workbook.write(fileOut);
         fileOut.close();
         workbook.close();
+        Utility.deleteFileOnDesktop(new File(yelpfile));
     }
 }

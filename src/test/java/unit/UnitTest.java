@@ -1,12 +1,11 @@
 package unit;
 
 import common.*;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import pages.LoginPage;
+import java.util.*;
 
-import java.util.ArrayList;
-
-public class UnitTest extends LoginPage {
+public class UnitTest extends LoginPage{
     @Test
     public void FormatToCurrency() {
         Utility.toCurrency(123);

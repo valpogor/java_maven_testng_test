@@ -1,14 +1,19 @@
 package unit;
 
+import common.Utility;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.LoginPage;
+import web.driver.factory.DriverFactory;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +46,6 @@ public class YelpFindAllNamesPhones extends LoginPage {
         workbook.write(fileOut);
         fileOut.close();
         workbook.close();
+        Utility.deleteFileOnDesktop(new File(yelpfile));
     }
-
 }

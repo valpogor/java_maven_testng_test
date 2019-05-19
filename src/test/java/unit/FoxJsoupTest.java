@@ -1,22 +1,16 @@
 // Using library jsoup for web parsing(find some elements) and writing to xls file
 
 package unit;
-
 import common.Utility;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
+import org.jsoup.*;
+import org.jsoup.nodes.*;
+import org.jsoup.select.*;
+import org.apache.poi.hssf.usermodel.*;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.*;
+import java.util.*;
 
 public class FoxJsoupTest extends LoginPage {
 //    public static void main(String[] args) throws IOException {

@@ -1,10 +1,9 @@
 package pages;
 
 import java.util.ResourceBundle;
-
 import static java.util.ResourceBundle.getBundle;
 
-public class LoginPage extends Page {
+public class LoginPage extends Page{
     private final ResourceBundle resourceBundle;
     private final String url;
     private final String explicitTime;
@@ -27,7 +26,6 @@ public class LoginPage extends Page {
         aolVideoBtnLoc = this.getResourceBundle().getString("aolVideoBtnLoc");
         urlAol = this.getResourceBundle().getString("urlAol");
         urlHalfEbay = this.getResourceBundle().getString("urlHalfEbay");
-
     }
     @Override
     public ResourceBundle getResourceBundle() {

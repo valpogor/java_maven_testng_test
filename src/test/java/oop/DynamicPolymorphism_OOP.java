@@ -3,7 +3,7 @@ package oop;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 
-public class DynamicPolymorphism_OOP extends LoginPage {
+public class DynamicPolymorphism_OOP extends LoginPage{
     class Animal {
         public void eat() {
             System.out.println("This animal eats insects.");
