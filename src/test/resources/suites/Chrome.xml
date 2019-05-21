@@ -5,14 +5,14 @@
         <parameter name="browser" value="Chrome"/>
         <parameter name="team" value="1"/>
         <classes>
-            <class name="ui.DatafactionLandingPageTest"/>
-            <class name="ui.DatafactionLinksLoopsTest"/>
-            <class name="ui.EbayTXTXLSPageTest"/>
-            <class name="ui.FoxSeleniumTest"/>
-            <class name="ui.LoginPageTest"/>
-            <class name="ui.NavigationToGoogle"/>
+            <!--<class name="ui.DatafactionLandingPageTest"/>-->
+            <!--<class name="ui.DatafactionLinksLoopsTest"/>-->
+            <!--<class name="ui.EbayTXTXLSPageTest"/>-->
+            <!--<class name="ui.FoxSeleniumTest"/>-->
+            <!--<class name="ui.LoginPageTest"/>-->
+            <!--<class name="ui.NavigationToGoogle"/>-->
             <class name="ui.YelpFindAllNamesPhones"/>
-            <class name="smoke.SmokeTest"/>
+            <!--<class name="smoke.SmokeTest"/>-->
         </classes>
     </test>
 </suite>
