@@ -254,7 +254,7 @@ public class Utility extends LoginPage {
         }
         String yelpfile = System.getProperty("user.home")+"/Desktop/"+searchItem+"_"+city+".xls";
         HSSFWorkbook workbook = new HSSFWorkbook();
-        HSSFSheet sheet = workbook.createSheet("Van Nuys");
+        HSSFSheet sheet = workbook.createSheet(city);
         HSSFRow rowhead = sheet.createRow((short)0);
         rowhead.createCell(0).setCellValue("Companies");
         rowhead.createCell(1).setCellValue("Phones");
@@ -268,7 +268,8 @@ public class Utility extends LoginPage {
         fileOut.close();
         workbook.close();
         if(deleteFileYesNo.contains("Yes")){
-        Utility.deleteFileOnDesktop(new File(yelpfile));}
+            Utility.deleteFileOnDesktop(new File(yelpfile));
+        }
     }
 }
 
