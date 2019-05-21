@@ -1,6 +1,9 @@
 package common;
 
 import com.github.javafaker.*;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.*;
 import org.testng.*;
@@ -227,6 +230,45 @@ public class Utility extends LoginPage {
         BufferedWriter out = new BufferedWriter(new FileWriter(textFile));
         out.write(output);
         out.close();
+    }
+
+    public static void searchYelpByCityByItemsCreateXls(String browser, String searchItem, String city, String deleteFileYesNo) throws Exception {
+        WebDriver driver = DriverFactory.getDriver(browser);
+        driver.get("https://www.yelp.com/");
+        driver.findElement(By.id("find_desc")).sendKeys(searchItem);
+        driver.findElement(By.id("dropperText_Mast")).clear();
+        driver.findElement(By.id("dropperText_Mast")).sendKeys(city);
+        driver.findElement(By.id("dropperText_Mast")).sendKeys(Keys.ENTER);
+        ArrayList<String> comps = new ArrayList<>();
+        ArrayList<String> phs = new ArrayList<>();
+        String pages = driver.findElement(By.xpath("//*[@role='navigation']//span[1]")).getText();
+        int allpages = Integer.parseInt(pages.replaceAll("(Page 1 of )", ""));
+        for (int i = 1; i < (allpages+10)/10; i++) {
+            driver.get("https://www.yelp.com/search?find_desc=concreate&find_loc=Van%20Nuys&ns=1&start=" + i + "0");
+            ArrayList<String> companies = Utility.collecElementTxt(driver, "//*[@class='lemon--div__373c0__1mboc businessName__373c0__1fTgn border-color--default__373c0__2oFDT']");
+            ArrayList<String> phones = Utility.collecElementTxt(driver, "//*[@class='lemon--div__373c0__1mboc display--inline-block__373c0__2de_K u-space-b1 border-color--default__373c0__2oFDT']");
+            for (int j = 1; j < companies.size(); j++) {
+                comps.add(companies.get(j));
+                phs.add(phones.get(j));
+            }
+        }
+        String yelpfile = System.getProperty("user.home")+"/Desktop/"+searchItem+"_"+city+".xls";
+        HSSFWorkbook workbook = new HSSFWorkbook();
+        HSSFSheet sheet = workbook.createSheet("Van Nuys");
+        HSSFRow rowhead = sheet.createRow((short)0);
+        rowhead.createCell(0).setCellValue("Companies");
+        rowhead.createCell(1).setCellValue("Phones");
+        for (int j = 0; j < comps.size(); j++) {
+            HSSFRow rows = sheet.createRow((short)j+1);
+            rows.createCell(0).setCellValue(comps.get(j));
+            rows.createCell(1).setCellValue(phs.get(j));
+        }
+        FileOutputStream fileOut = new FileOutputStream(yelpfile);
+        workbook.write(fileOut);
+        fileOut.close();
+        workbook.close();
+        if(deleteFileYesNo.contains("Yes")){
+        Utility.deleteFileOnDesktop(new File(yelpfile));}
     }
 }
 

@@ -45,6 +45,12 @@ public class YelpFindAllNamesPhones extends LoginPage {
     @Test
     @Parameters({"browser"})
     public void yelpSearchSeleniumAllPages(String browser)throws Exception {
+        Utility.searchYelpByCityByItemsCreateXls(browser, "concreate", "Studio City", "no");
+    }
+
+    @Test
+    @Parameters({"browser"})
+    public void yelpSearchSeleniumAllPgs(String browser)throws Exception {
         WebDriver driver = DriverFactory.getDriver(browser);
         driver.get("https://www.yelp.com/");
         driver.findElement(By.id("find_desc")).sendKeys("concreate");
@@ -79,7 +85,6 @@ public class YelpFindAllNamesPhones extends LoginPage {
         workbook.write(fileOut);
         fileOut.close();
         workbook.close();
-//        Utility.deleteFileOnDesktop(new File(yelpfile));
+        Utility.deleteFileOnDesktop(new File(yelpfile));
     }
-
 }
