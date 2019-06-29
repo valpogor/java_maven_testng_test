@@ -11,8 +11,9 @@
             <!--<class name="ui.FoxSeleniumTest"/>-->
             <!--<class name="ui.LoginPageTest"/>-->
             <!--<class name="ui.NavigationToGoogle"/>-->
-            <class name="ui.YelpFindAllNamesPhones"/>
+            <!--<class name="ui.YelpFindAllNamesPhones"/>-->
             <!--<class name="smoke.SmokeTest"/>-->
+            <class name="ui.AmazonSignUp"/>
         </classes>
     </test>
 </suite>
