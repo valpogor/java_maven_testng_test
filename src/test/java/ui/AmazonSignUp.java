@@ -64,4 +64,27 @@ public class AmazonSignUp extends LoginPage {
         }
         return code;
     }
+
+    @Test()
+    @Parameters({"browser"})
+    public void amazonNavigation(String browser){
+
+        String sometext = "jgdvkfbalkjgfksaebdglkabdslgblsakrjfbgafnejg" +
+                "kjgblksjbglkbslkgsnbflkhdsfbgklsnbflgkns" +
+                "mjbgklsbfglkbnaf.glkndbaf./kgladsfjkg," +
+                "kfksajbfgkasgj55766896498169264,./.,.,.,.,@#$%^&*(";
+        Integer someNumbers = 888888887;
+        int nu = 875875858;
+        if(someNumbers.toString().contains("9")){
+            System.out.println("Found matches");
+        }
+        else if(nu+10==100){
+            System.out.println("Correct");
+
+        }
+        else{
+            System.out.println("Found not matches");
+
+        }
+    }
 }
