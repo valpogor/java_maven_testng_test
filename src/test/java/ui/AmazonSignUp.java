@@ -5,10 +5,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 import org.testng.AssertJUnit;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.LoginPage;
+import web.driver.factory.DriverFactory;
 
 import javax.mail.*;
 import java.util.Properties;
@@ -67,24 +69,32 @@ public class AmazonSignUp extends LoginPage {
 
     @Test()
     @Parameters({"browser"})
-    public void amazonNavigation(String browser){
+    public void amazonNavTop(String browser) throws Exception{
+        WebDriver driver = DriverFactory.getDriver(browser);
+        driver.get("https://www.amazon.com");
+        WebElement element = driver.findElement(By.xpath("//*[@id=\"navBackToTop\"]"));
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element);
+        actions.perform();
+        driver.findElement(By.xpath("//*[@id=\"navBackToTop\"]/div/span")).click();
+        Assert.assertTrue(driver.getCurrentUrl().contains("#nav-top"));
+    }
 
-        String sometext = "jgdvkfbalkjgfksaebdglkabdslgblsakrjfbgafnejg" +
-                "kjgblksjbglkbslkgsnbflkhdsfbgklsnbflgkns" +
-                "mjbgklsbfglkbnaf.glkndbaf./kgladsfjkg," +
-                "kfksajbfgkasgj55766896498169264,./.,.,.,.,@#$%^&*(";
-        Integer someNumbers = 888888887;
-        int nu = 875875858;
-        if(someNumbers.toString().contains("9")){
-            System.out.println("Found matches");
-        }
-        else if(nu+10==100){
-            System.out.println("Correct");
+    @Test()
+    @Parameters({"browser"})
+    public void amazonNavigationWhole(String browser) throws Exception{
+        WebDriver driver = DriverFactory.getDriver(browser);
+        driver.get("https://www.amazon.com");
+        driver.findElement(By.xpath("//*[@id=\"nav-xshop\"]/a[5]")).click();
+        Assert.assertTrue(driver.getCurrentUrl().contains("whole"));
+    }
 
-        }
-        else{
-            System.out.println("Found not matches");
-//Hello, im here!
-        }
+    @Test()
+    @Parameters({"browser"})
+    public void amazonNavigation(String browser) throws Exception{
+        WebDriver driver = DriverFactory.getDriver(browser);
+        driver.get("https://www.amazon.com");
+        driver.findElement(By.xpath("//*[@id=\"nav-xshop\"]/a[5]")).click();
+        Assert.assertTrue(driver.getCurrentUrl().contains("whole"));
     }
 }
