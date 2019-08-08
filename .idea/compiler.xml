@@ -7,8 +7,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="java.webdriver" />
-        <module name="java_maven_testng_3" />
-        <module name="qastarting_java_test" />
       </profile>
     </annotationProcessing>
   </component>

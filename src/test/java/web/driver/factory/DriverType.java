@@ -1,5 +1,6 @@
 package web.driver.factory;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.*;
 import org.openqa.selenium.firefox.*;
@@ -24,6 +25,7 @@ public enum DriverType implements DriverSetup {
         public WebDriver getWebDriverObject(DesiredCapabilities capabilities){
             System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"/src/test/resources/geckodriver");
             System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "");
+            WebDriverManager.firefoxdriver().setup();
             return new FirefoxDriver(capabilities);
         }
     },
@@ -43,8 +45,9 @@ public enum DriverType implements DriverSetup {
             return capabilities;
         }
         public WebDriver getWebDriverObject(DesiredCapabilities capabilities){
-            System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/src/test/resources/chromedriver");
-            System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "");
+//            System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/src/test/resources/chromedriver");
+//            System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "");
+            WebDriverManager.chromedriver().setup();
             return new ChromeDriver(capabilities);
         }
     },

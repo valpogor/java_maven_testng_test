@@ -22,7 +22,7 @@ public class AmazonSignUp extends LoginPage {
     @Test()
     @Parameters({"browser"})
     public void amazonSignUp(){
-        System.setProperty("webdriver.chrome.driver", "../java_maven_testng_3/src/test/resources/chromedriver");
+//        System.setProperty("webdriver.chrome.driver", "../java_maven_testng_3/src/test/resources/chromedriver");
         WebDriver d = new ChromeDriver();
         d.get("http://www.amazon.com/");
         Actions mouse = new Actions(d);
