@@ -1,29 +1,23 @@
 package ui;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
-import org.testng.Assert;
-import org.testng.AssertJUnit;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
-import pages.LoginPage;
+import common.*;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.*;
+import org.openqa.selenium.interactions.*;
+import org.openqa.selenium.remote.*;
+import org.testng.*;
+import org.testng.annotations.*;
+import pages.*;
 import web.driver.factory.DriverFactory;
-
 import javax.mail.*;
-import java.util.Properties;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
+import java.util.*;
+import java.util.regex.*;
 
 public class AmazonSignUp extends LoginPage {
     @Test()
     @Parameters({"browser"})
-    public void amazonSignUp(){
-//        System.setProperty("webdriver.chrome.driver", "../java_maven_testng_3/src/test/resources/chromedriver");
-        WebDriver d = new ChromeDriver();
+    public void amazonSignUp(String browser){
+        WebDriver d = DriverFactory.getDriver(browser);
         d.get("http://www.amazon.com/");
         Actions mouse = new Actions(d);
         WebElement signIn = d.findElement(By.id("nav-link-accountList"));
@@ -97,4 +91,22 @@ public class AmazonSignUp extends LoginPage {
         driver.findElement(By.xpath("//*[@id=\"nav-xshop\"]/a[5]")).click();
         Assert.assertTrue(driver.getCurrentUrl().contains("whole"));
     }
+
+    @Test()
+    @Parameters({"browser"})
+    public void cnetSignUp(String browser) throws Exception{
+        WebDriver driver = DriverFactory.getDriver(browser);
+        driver.get("https://www.cnet.com");
+        Actions act = new Actions(driver);
+        WebElement el = driver.findElement(By.xpath("//div[@class='button button_type_reversed-secondary button_size_small ']/span"));
+        act.moveToElement(el).perform();
+        act.click().doubleClick().build().perform();
+        for(String winHandle : driver.getWindowHandles()){
+            driver.switchTo().window(winHandle);
+        }
+        driver.findElement(By.xpath("//button[@data-action='urs']/span")).click();
+        driver.findElement(By.xpath("//input[@type='email' and @aria-invalid='true']")).click();
+        driver.findElement(By.xpath("//input[@type='email' and @aria-invalid='true']")).sendKeys("youremail@gmail.com");
+        driver.findElement(By.xpath("//div[@class='_loginOrRegister active']//span[text()[.='Continue']]")).click();
+        }
 }

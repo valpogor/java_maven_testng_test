@@ -6,7 +6,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 public class DriverThread {
     private WebDriver webdriver;
     private DriverType selectDriverType;
-    private final DriverType defaultDriverType = DriverType.FIREFOX;
+    private final DriverType defaultDriverType = DriverType.CHROME;
     private final String operatingSystem = System.getProperty("os.name").toUpperCase();
     private final String systemArchitecture = System.getProperty("os.arch");
 
