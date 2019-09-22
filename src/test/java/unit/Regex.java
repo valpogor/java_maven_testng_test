@@ -54,7 +54,7 @@ public class Regex {
             "</w:r>\n" +
             "</w:p>\n" +
             "<w:p>";
-    File fileXmlBooks = new File(System.getProperty("user.home")+"/Desktop/qalife/src/test/resources/Files/books.xml");
+    File fileXmlBooks = new File(System.getProperty("user.home")+"/Desktop/qalife/src/SeleniumFoxXlsCreated/resources/Files/books.xml");
 
     @Test
     public void regexFoundFromStringTextByAuthor() throws Exception{

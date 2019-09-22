@@ -21,7 +21,7 @@ public class RestAssuredXMLExamplesTest extends LoginPage {
 
     /*
 
-    see JSON test for all useful links
+    see JSON SeleniumFoxXlsCreated for all useful links
 
     http://compendiumdev.co.uk/apps/mocktracks/projectsxml.php
 
@@ -74,7 +74,7 @@ public class RestAssuredXMLExamplesTest extends LoginPage {
     @Test
     public void canGetXMLAttributes(){
 
-        File xmlExample = new File(System.getProperty("user.dir"),"src/test/resources/jsonxml/xmlexample.xml");
+        File xmlExample = new File(System.getProperty("user.dir"),"src/SeleniumFoxXlsCreated/resources/jsonxml/xmlexample.xml");
 
         XmlPath xmlPath = new XmlPath(xmlExample);
         // xml get attributes
@@ -86,7 +86,7 @@ public class RestAssuredXMLExamplesTest extends LoginPage {
     @Test
     public void aSetOfXmlPathExamples(){
 
-        File xmlExample = new File(System.getProperty("user.dir"),"src/test/resources/jsonxml/xmlexample.xml");
+        File xmlExample = new File(System.getProperty("user.dir"),"src/SeleniumFoxXlsCreated/resources/jsonxml/xmlexample.xml");
 
         XmlPath xmlPath = new XmlPath(xmlExample);
 

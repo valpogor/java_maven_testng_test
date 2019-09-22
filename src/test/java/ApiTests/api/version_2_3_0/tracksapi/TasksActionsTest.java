@@ -26,7 +26,7 @@ public class TasksActionsTest extends LoginPage {
 
 
     /**
-     * If this test had been written differently it might not have checked for the known bug
+     * If this SeleniumFoxXlsCreated had been written differently it might not have checked for the known bug
      */
     // the exploratory testing has revealed that trying to  http://{{url}}/projects/189/todos.xml
     // returns all todos, not those limited by the project
@@ -36,7 +36,7 @@ public class TasksActionsTest extends LoginPage {
         Assert.assertEquals(0, tasks.size());
 */
     // if the above assertion is placed after the `getProjectTasks`
-    // immediately after creating a project then teh test fails
+    // immediately after creating a project then teh SeleniumFoxXlsCreated fails
 
     @Test
     public void weCanAddTasksToAProject(){

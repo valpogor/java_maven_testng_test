@@ -65,7 +65,7 @@ public class RestAssuredJSONExamplesTest extends LoginPage {
     public void aSetOfJsonPathExamples(){
 
         File jsonExample = new File(System.getProperty("user.dir"),
-                "src/test/resources/jsonxml/jsonexample.json");
+                "src/SeleniumFoxXlsCreated/resources/jsonxml/jsonexample.json");
 
         JsonPath jsonPath = new JsonPath(jsonExample);
 

@@ -23,7 +23,7 @@ public enum DriverType implements DriverSetup {
             return capabilities;
         }
         public WebDriver getWebDriverObject(DesiredCapabilities capabilities){
-            System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"/src/test/resources/geckodriver");
+            System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"/src/SeleniumFoxXlsCreated/resources/geckodriver");
             System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "");
             WebDriverManager.firefoxdriver().setup();
             return new FirefoxDriver(capabilities);
@@ -40,7 +40,7 @@ public enum DriverType implements DriverSetup {
             options.addArguments("disable-extensions");
             options.setExperimentalOption("prefs", prefs);
             options.addArguments("chrome.switches","--disable-extensions");
-            options.addArguments("--test-type");
+            options.addArguments("--SeleniumFoxXlsCreated-type");
             capabilities.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.ACCEPT);
             capabilities.setCapability("chrome.switches", Collections.singletonList("--disable-extensions"));
             capabilities.setCapability(ChromeOptions.CAPABILITY, options);
@@ -60,7 +60,7 @@ public enum DriverType implements DriverSetup {
             return capabilities;
         }
         public WebDriver getWebDriverObject(DesiredCapabilities capabilities){
-            System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/src/test/resources/chromedriver");
+            System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/src/SeleniumFoxXlsCreated/resources/chromedriver");
 //            System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "");
 //            WebDriverManager.chromedriver().setup();
             return new ChromeDriver(capabilities);
