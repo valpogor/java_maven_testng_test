@@ -18,15 +18,15 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <failsafe.plugin.version>2.19.1</failsafe.plugin.version>
+        <failsafe.plugin.version>3.0.0-M7</failsafe.plugin.version>
         <lazerycode.version>1.0.11</lazerycode.version>
-        <selenium.version>3.4.0</selenium.version>
+        <selenium.version>3.7.0</selenium.version>
         <overwrite.binaries>false</overwrite.binaries>
         <hamcrest-version>1.3</hamcrest-version>
-        <testng.version>6.14.3</testng.version>
+        <testng.version>7.7.0</testng.version>
         <!--<junit.version>4.12</junit.version>-->
-        <mysql.version>6.0.4</mysql.version>
-        <hibernate.version>4.3.11.Final</hibernate.version>
+        <mysql.version>8.0.31</mysql.version>
+        <hibernate.version>6.1.6.Final</hibernate.version>
         <!--<fasterxml.jackson.version>2.8.3</fasterxml.jackson.version>-->
         <phantomjsdriver.version>1.3.0</phantomjsdriver.version>
         <browsermob.version>2.1.0-beta-6</browsermob.version>
@@ -37,6 +37,7 @@
         <javax.json.version>1.0.4</javax.json.version>
         <jdk.version>1.8</jdk.version>
         <maven.compiler.version>3.5.1</maven.compiler.version>
+        <webdrivermanager.version>5.3.1</webdrivermanager.version>
         <overwrite.binaries>false</overwrite.binaries>
         <browser>chrome</browser>
         <seleniumUrl>https://www.google.com</seleniumUrl>
@@ -74,7 +75,7 @@
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>3.6.2</version>
+            <version>${webdrivermanager.version}</version>
         </dependency>
         <dependency>
             <groupId>org.hamcrest</groupId>
@@ -113,12 +114,12 @@
             <version>${extentreports.version}</version>
         </dependency>
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
             <version>${mysql.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.hibernate</groupId>
+            <groupId>org.hibernate.orm</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>${hibernate.version}</version>
         </dependency>

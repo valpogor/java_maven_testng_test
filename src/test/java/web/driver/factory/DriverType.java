@@ -4,7 +4,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.*;
 import org.openqa.selenium.firefox.*;
-import org.openqa.selenium.opera.*;
+//import org.openqa.selenium.opera.*;
 import org.openqa.selenium.remote.*;
 import java.io.*;
 import java.util.*;
@@ -23,7 +23,7 @@ public enum DriverType implements DriverSetup {
             return capabilities;
         }
         public WebDriver getWebDriverObject(DesiredCapabilities capabilities){
-            System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"/src/SeleniumFoxXlsCreated/resources/geckodriver");
+//            System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"/src/SeleniumFoxXlsCreated/resources/geckodriver");
             System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "");
             WebDriverManager.firefoxdriver().setup();
             return new FirefoxDriver(capabilities);
@@ -34,11 +34,11 @@ public enum DriverType implements DriverSetup {
             ChromeOptions options = new ChromeOptions();
             DesiredCapabilities capabilities = DesiredCapabilities.chrome();
             Map<String, Object> prefs = new HashMap<String, Object>();
-            options.setExperimentalOption("useAutomationExtension", false);
+//            options.setExperimentalOption("useAutomationExtension", false);
             options.addArguments("disable-infobars");
                         options.addArguments("--headless");
             options.addArguments("disable-extensions");
-            options.setExperimentalOption("prefs", prefs);
+//            options.setExperimentalOption("prefs", prefs);
             options.addArguments("chrome.switches","--disable-extensions");
             options.addArguments("--SeleniumFoxXlsCreated-type");
             capabilities.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.ACCEPT);
@@ -60,23 +60,23 @@ public enum DriverType implements DriverSetup {
             return capabilities;
         }
         public WebDriver getWebDriverObject(DesiredCapabilities capabilities){
-            System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/src/SeleniumFoxXlsCreated/resources/chromedriver");
+//            System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/src/SeleniumFoxXlsCreated/resources/chromedriver");
 //            System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "");
-//            WebDriverManager.chromedriver().setup();
+            WebDriverManager.chromedriver().setup();
             return new ChromeDriver(capabilities);
         }
-    },
-
-    Opera {
-        public DesiredCapabilities getDesiredCapabilities() {
-            DesiredCapabilities capabilities = DesiredCapabilities.opera();
-            return capabilities;
-        }
-        public WebDriver getWebDriverObject(DesiredCapabilities capabilities){
-//            File file = new File(new File(String.valueOf(DriverType.class.getClassLoader().getResource("operadriver"))).getPath());
-//            System.setProperty("webdriver.opera.driver", file.toString());
-            return new OperaDriver(capabilities);
-        }
     }
+
+//    Opera {
+//        public DesiredCapabilities getDesiredCapabilities() {
+//            DesiredCapabilities capabilities = DesiredCapabilities.opera();
+//            return capabilities;
+//        }
+//        public WebDriver getWebDriverObject(DesiredCapabilities capabilities){
+////            File file = new File(new File(String.valueOf(DriverType.class.getClassLoader().getResource("operadriver"))).getPath());
+////            System.setProperty("webdriver.opera.driver", file.toString());
+//            return new OperaDriver(capabilities);
+//        }
+//    }
 
 }
